@@ -1,0 +1,9 @@
+{
+  "BrowserName" : "Chrome",
+  "Chrome" : "C:\\Users\\DraftAutomationFramework\\chromedriver.exe",
+  "Firefox" : "C:\\Users\\DraftAutomationFramework\\geckodriver.exe",
+  "Username" : "qa.admin.aut01@tier1fin.com",
+  "Password" : "t1admin!",
+  "URL" : "https://test.salesforce.com",
+  "ApplicationName" : "ACE Allegro"
+}

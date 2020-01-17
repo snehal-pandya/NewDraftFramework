@@ -1,0 +1,26 @@
+{
+  "Salesforce": {
+    "Login": {
+      "userName": {
+        "id": "username"
+      },
+      "Password": {
+        "id": "password"
+      },
+      "LoginToSandbox": {
+        "id": "Login"
+      }
+    },
+    "Home": {
+      "AppLauncher": {
+        "Xpath": "//div[@class=\"slds-icon-waffle\"]"
+      },
+      "SearchApps": {
+        "Xpath": "//input[@class=\"slds-input input\"]"
+      },
+      "OpenACEAllegro": {
+        "Xpath": "//a[@title=\"ACE Allegro\"]//span[@class=\"label slds-truncate slds-text-link\"]"
+      }
+    }
+  }
+}
