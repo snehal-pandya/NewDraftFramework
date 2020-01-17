@@ -7,6 +7,22 @@ import org.openqa.selenium.WebElement;
 public class ControlManager {
 	private WebDriver webDriver;
 	
+	private WebElement getElement(String locator, LocatorType type) {
+		switch (type){
+		case ID :
+			return webDriver.findElement(By.id(locator));
+		case XPATH :
+			return webDriver.findElement(By.xpath(locator));
+		case CSS :
+			return webDriver.findElement(By.cssSelector(locator));
+			
+		default:
+			return null;
+		
+		}
+		
+	}
+	
 	public ControlManager(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
@@ -16,11 +32,7 @@ public class ControlManager {
 		webDriver.get(url);
     }
 	
-	public WebElement getElement(String xpath) {
-		return webDriver.findElement(By.xpath(xpath));
-	}
-	
-	public void sendKeys(String xpath, String value) {
-		this.getElement(xpath).sendKeys(value);
+	public void sendKeys(String locator, String value, LocatorType type) {
+		this.getElement(locator,type).sendKeys(value);
 	}
 }

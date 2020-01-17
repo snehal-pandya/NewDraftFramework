@@ -1,8 +1,8 @@
 {
-  "Salesforce": {
+ "Salesforce": {
     "Login": {
       "userName": {
-        "id": "username"
+        "xPath": "//input[@id=\"username\"]"
       },
       "Password": {
         "id": "password"

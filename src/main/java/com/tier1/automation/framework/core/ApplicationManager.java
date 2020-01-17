@@ -49,7 +49,7 @@ public class ApplicationManager {
     public void loadApplication(JSONObject elementLocator) throws IOException, ParseException {
         SalesforceManager salesforceManager = new SalesforceManager(controlManager);
         salesforceManager.login(applicationConfig, elementLocator); 
-        salesforceManager.switchToLightening();
+        salesforceManager.activateLightening();
     }
     
     

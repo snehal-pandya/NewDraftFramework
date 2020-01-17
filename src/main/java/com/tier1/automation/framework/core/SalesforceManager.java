@@ -17,10 +17,10 @@ public class SalesforceManager {
 	
     public void login(JSONObject applicationConfig, JSONObject elementLocator) throws IOException, ParseException {
     	controlManager.loadUrl((String)applicationConfig.get("URL"));
-    	controlManager.sendKeys((String)elementLocator.get("UserName"), (String)applicationConfig.get("Username"));
+    	controlManager.sendKeys((String)elementLocator.get("Elements.Salesforce.Login.userName.xPath"), (String)applicationConfig.get("Username"),LocatorType.XPATH);
     }
 
-    public void switchToLightening()
+    public void activateLightening()
     {
 
     }

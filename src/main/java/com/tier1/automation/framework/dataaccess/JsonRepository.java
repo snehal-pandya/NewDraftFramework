@@ -21,7 +21,7 @@ public class JsonRepository implements IDataRepository {
         parser = new JSONParser();
         try
         {
-            FileReader file = new FileReader(".\\src\\main\\resources\\MasterData.json");
+            FileReader file = new FileReader("C:\\Tier1\\AutomationFramework\\src\\main\\resources\\MasterData.json");
            // Object obj = parser.parse(file);
             jsonReader = (JSONObject)parser.parse(file);
             ApplicationConfigFilePath = (String) jsonReader.get("ApplicationConfigFilePath");
@@ -48,19 +48,7 @@ public class JsonRepository implements IDataRepository {
         }
         return jsonReader;
     }
-    public JSONObject driverPropertiesReader() throws IOException, ParseException {
-        dataReader();
-        try
-        {
-            FileReader driverPropertiesFile =new FileReader(DriverPropertiesFilePath);
-            jsonReader = (JSONObject)parser.parse(driverPropertiesFile);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return jsonReader;
-
-    }
+    
 
     public JSONObject elementLocatorFileReader() throws IOException, ParseException {
         dataReader();

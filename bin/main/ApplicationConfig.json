@@ -1,7 +1,7 @@
 {
   "BrowserName" : "Chrome",
-  "Chrome" : "C:\\Users\\DraftAutomationFramework\\chromedriver.exe",
-  "Firefox" : "C:\\Users\\DraftAutomationFramework\\geckodriver.exe",
+  "Chrome" : "C:\\Users\\Snehal\\Downloads\\chromedriver.exe",
+  "Firefox" : "C:\\Users\\Snehal\\Downloads\\geckodriver.exe",
   "Username" : "qa.admin.aut01@tier1fin.com",
   "Password" : "t1admin!",
   "URL" : "https://test.salesforce.com",

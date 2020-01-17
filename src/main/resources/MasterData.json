@@ -1,5 +1,5 @@
 {
-  "ApplicationConfigFilePath" : ".\\src\\main\\resources\\ApplicationConfig.json",
-  "ElementLocatorFilePath": ".\\src\\main\\resources\\ElementLocator.json",
-  "DriverPropertiesFilePath" : ".\\src\\main\\resources\\DriverProperties.json"
+  "ApplicationConfigFilePath" : "C:\\Tier1\\AutomationFramework\\src\\main\\resources\\ApplicationConfig.json",
+  "ElementLocatorFilePath": "C:\\Tier1\\AutomationFramework\\src\\main\\resources\\ElementLocator.json",
+  "DriverPropertiesFilePath" : "C:\\Tier1\\AutomationFramework\\src\\main\\resources\\DriverProperties.json"
 }
