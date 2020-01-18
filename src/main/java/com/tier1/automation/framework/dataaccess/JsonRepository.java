@@ -7,6 +7,8 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 public class JsonRepository implements IDataRepository {
 
@@ -21,12 +23,12 @@ public class JsonRepository implements IDataRepository {
         parser = new JSONParser();
         try
         {
-            FileReader file = new FileReader("C:\\Tier1\\AutomationFramework\\src\\main\\resources\\MasterData.json");
+        	Path path = FileSystems.getDefault().getPath("AppConfig.json").toAbsolutePath();
+            FileReader file = new FileReader(path.toString());
            // Object obj = parser.parse(file);
             jsonReader = (JSONObject)parser.parse(file);
             ApplicationConfigFilePath = (String) jsonReader.get("ApplicationConfigFilePath");
             ElementLocatorFilePath = (String) jsonReader.get("ElementLocatorFilePath");
-            DriverPropertiesFilePath = (String) jsonReader.get("DriverPropertiesFilePath");
 
         }
         catch (FileNotFoundException e) {

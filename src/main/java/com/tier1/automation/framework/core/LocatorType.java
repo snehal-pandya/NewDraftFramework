@@ -4,6 +4,7 @@ public enum LocatorType {
 	
 	ID,
 	XPATH,
-	CSS
+	CSS, 
+	CLASSNAME
 
 }

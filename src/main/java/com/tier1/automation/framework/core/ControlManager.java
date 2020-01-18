@@ -14,8 +14,9 @@ public class ControlManager {
 		case XPATH :
 			return webDriver.findElement(By.xpath(locator));
 		case CSS :
-			return webDriver.findElement(By.cssSelector(locator));
-			
+			return webDriver.findElement(By.cssSelector(locator));	
+		case CLASSNAME : 
+			return webDriver.findElement(By.className(locator));
 		default:
 			return null;
 		
@@ -34,5 +35,12 @@ public class ControlManager {
 	
 	public void sendKeys(String locator, String value, LocatorType type) {
 		this.getElement(locator,type).sendKeys(value);
+	}
+	
+	public void clickElement(String locator, LocatorType type){
+		this.getElement(locator, type).click();
+	}
+	public String showCurrentURL ( ){
+		return webDriver.getCurrentUrl();
 	}
 }

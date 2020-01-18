@@ -22,6 +22,16 @@ public class SalesforceManager {
 
     public void activateLightening()
     {
+    	if(controlManager.showCurrentURL().contains("lightning"))
+        {
+           //Already in lightning mode
+        }
+        else
+        {
+            controlManager.clickElement("switch-to-lightning", LocatorType.CLASSNAME);
+
+            // Switch to lightning mode
+        }
 
     }
 }
