@@ -6,6 +6,6 @@ import java.io.IOException;
 
 public interface IDataRepository {
 
-    public void dataReader() throws IOException, ParseException;
+    public String dataReader() throws IOException, ParseException;
     public void cacheManager();
 }

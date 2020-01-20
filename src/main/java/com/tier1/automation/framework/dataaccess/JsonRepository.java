@@ -1,70 +1,53 @@
 package com.tier1.automation.framework.dataaccess;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.FileSystems;
-import java.nio.file.Path;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.DocumentContext;
+import com.jayway.jsonpath.JsonPath;
 
 public class JsonRepository implements IDataRepository {
 
-    String ApplicationConfigFilePath;
-    String ElementLocatorFilePath;
-    String DriverPropertiesFilePath;
-    JSONObject jsonReader;
-    JSONParser parser;
-    
+    String ElementLocatorFilePath;    
     @Override
-    public void dataReader() throws IOException, ParseException {
-        parser = new JSONParser();
-        try
-        {
-        	Path path = FileSystems.getDefault().getPath("AppConfig.json").toAbsolutePath();
-            FileReader file = new FileReader(path.toString());
-           // Object obj = parser.parse(file);
-            jsonReader = (JSONObject)parser.parse(file);
-            ApplicationConfigFilePath = (String) jsonReader.get("ApplicationConfigFilePath");
-            ElementLocatorFilePath = (String) jsonReader.get("ElementLocatorFilePath");
-
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
+    public String dataReader() throws IOException {
+                
+        String appConfigData = "";
+    	try {
+    			appConfigData = new String(Files.readAllBytes(Paths.get((FileSystems.getDefault().getPath("ApplicationConfig.json").toAbsolutePath()).toString())));
+    			DocumentContext appConfigAccess = JsonPath.using(Configuration.defaultConfiguration()).parse(appConfigData);
+    			ElementLocatorFilePath = appConfigAccess.read("$.ElementLocatorFilePath");
+    	} 
+    	catch (IOException e) {
+    			e.printStackTrace();
+    		}
+    	return appConfigData;
     }
     
-    public JSONObject applicationConfigReader() throws IOException, ParseException {
+    /*public String applicationConfigReader() throws IOException {
         dataReader();
-        try
-        {
-            FileReader applicationConfigFile =new FileReader(ApplicationConfigFilePath);
-            jsonReader = (JSONObject)parser.parse(applicationConfigFile);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return jsonReader;
-    }
+        String json = "";
+		try {
+			json = new String(Files.readAllBytes(Paths.get(ElementLocatorFilePath)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return json;
+    }*/
     
-
-    public JSONObject elementLocatorFileReader() throws IOException, ParseException {
-        dataReader();
-        try
-        {
-            FileReader elementLocatorFile =new FileReader(ElementLocatorFilePath);
-            jsonReader = (JSONObject)parser.parse(elementLocatorFile);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return jsonReader;
-    }
-
+    public String elementLocatorFileReader() throws IOException {
+    	dataReader();
+    	String elementLocatorData = "";
+		try {
+			elementLocatorData = new String(Files.readAllBytes(Paths.get(ElementLocatorFilePath)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return elementLocatorData;
+	}
 
 	@Override
 	public void cacheManager() {
